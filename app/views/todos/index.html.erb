@@ -1,0 +1,13 @@
+<h1> "Hello there, i am creating a todo"<h1>
+
+<div class ="container">
+  <%= form_with(model: @Todo, class: "mt-4") do |form| %>
+    <div class="mb-2">
+      <%= form.label :title, class: "form-label"%>
+      <%= form.text_field :title, class: "form-control", placeholder: "New todo" %>
+    </div>
+    <div>
+      <%=  form.submit "Create Todo", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
