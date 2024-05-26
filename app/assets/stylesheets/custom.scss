@@ -1,3 +1,36 @@
 body {
   background-color: grey;
 }
+
+.custom-bg {
+  background-color: darkslategray; /* Replace with your specific color */
+}
+
+.link-button {
+  display: inline-block;
+  justify-content: center;
+  padding: 10px 50px;
+  margin-bottom: 15px;
+  background-color: darkcyan;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.link-button:hover {
+  text-decoration: none;
+  background-color: darkkhaki;
+}
+
+.link-btn {
+  background-color:lavenderblush;
+  color:black;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.link-btn:hover {
+  text-decoration: none;
+  background-color:black;
+  color: lavenderblush;
+}

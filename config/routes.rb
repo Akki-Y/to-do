@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   # root "posts#index"
   # get 'todos/index'
   root 'todos#index'
+  resources :todos do
+  member do
+    patch 'complete', to: 'completions#update'
+  end
+end
 end

@@ -71,3 +71,5 @@ group :test do
 end
 
 gem 'bootstrap', '~> 5.3.3'
+
+gem 'byebug', '~> 11.0', group: :development

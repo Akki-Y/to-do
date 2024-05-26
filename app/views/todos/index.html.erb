@@ -1,13 +1,38 @@
-<h1> "Hello there, i am creating a todo"<h1>
+<body class="custom-bg text-white">
+  <h3 class="text-center"> "Hello there, I am creating a Todo"</h3>
+  <h4 class="text-right">This is index page u can just view the page. It is not a login page</h4>
+  <h4> Home Page</h4>
 
-<div class ="container">
-  <%= form_with(model: @Todo, class: "mt-4") do |form| %>
-    <div class="mb-2">
-      <%= form.label :title, class: "form-label"%>
-      <%= form.text_field :title, class: "form-control", placeholder: "New todo" %>
-    </div>
-    <div>
-      <%=  form.submit "Create Todo", class: "btn btn-primary" %>
-    </div>
-  <% end %>
+  <br>
+  <div class="container">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Complete</th>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+        <% @todos.each do |todo| %>
+          <tr>
+          <td><%=todo.id%></td>
+          <td>
+              <%= form_with(url: complete_todo_path(todo), method: :patch, local: true) do %>
+                <%= check_box_tag 'completed', todo.id, todo.completed, class: 'form-check-input', onchange: 'this.form.submit();' %>
+              <% end %>
+          </td>
+          <td><%=todo.title%></td>
+          <td>
+          <%= link_to "edit" , edit_todo_path(todo.id), class: "link-btn"%>
+          <%= link_to "Delete", todo_path(todo.id), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'},  class: "link-btn"%>
+          </td>
+         
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</body>
+<div class="text-center">
+<%= link_to "Create a new todo", new_todo_path, class: "link-button" %>
 </div>
